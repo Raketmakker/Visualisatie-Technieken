@@ -43,6 +43,7 @@ void init()
 	glClearColor(1, 0.7f, 0.3f, 1.0f);
 
 	currentShader = 0;
+	shaders.push_back(new Shader("assets/shaders/brick"));
 	shaders.push_back(new Shader("assets/shaders/toonshading"));
 	shaders.push_back(new Shader("assets/shaders/simple"));
 	shaders.push_back(new Shader("assets/shaders/multitex"));
