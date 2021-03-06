@@ -76,5 +76,11 @@
     <None Include="assets\shaders\simple.fs">
       <Filter>assets\shaders</Filter>
     </None>
+    <None Include="assets\shaders\toonshading.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\toonshading.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

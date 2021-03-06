@@ -100,6 +100,8 @@
     <None Include="assets\shaders\texture.vs" />
     <None Include="assets\shaders\textureanim.fs" />
     <None Include="assets\shaders\textureanim.vs" />
+    <None Include="assets\shaders\toonshading.fs" />
+    <None Include="assets\shaders\toonshading.vs" />
     <None Include="assets\shaders\vertexanim.fs" />
     <None Include="assets\shaders\vertexanim.vs" />
   </ItemGroup>
