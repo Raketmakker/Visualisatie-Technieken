@@ -61,6 +61,7 @@ void init()
 	shaders.push_back(new Shader("assets/shaders/texture"));
 	shaders.push_back(new Shader("assets/shaders/vertexanim"));
 
+	postProcessShaders.push_back(new Shader("assets/shaders/post/median"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/sobelfilter"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/postGrey"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/postprocess"));
