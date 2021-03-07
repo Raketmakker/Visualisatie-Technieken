@@ -96,6 +96,8 @@
     <None Include="assets\shaders\brick.vs" />
     <None Include="assets\shaders\multitex.fs" />
     <None Include="assets\shaders\multitex.vs" />
+    <None Include="assets\shaders\noiseAlphaCutoff.fs" />
+    <None Include="assets\shaders\noiseAlphaCutoff.vs" />
     <None Include="assets\shaders\noiseColor.fs" />
     <None Include="assets\shaders\noiseColor.vs" />
     <None Include="assets\shaders\simple.fs" />

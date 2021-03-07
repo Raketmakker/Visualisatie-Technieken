@@ -94,5 +94,11 @@
     <None Include="assets\shaders\noiseColor.vs">
       <Filter>assets\shaders</Filter>
     </None>
+    <None Include="assets\shaders\noiseAlphaCutoff.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\noiseAlphaCutoff.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
