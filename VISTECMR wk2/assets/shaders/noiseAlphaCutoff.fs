@@ -1,4 +1,5 @@
 in vec2 texCoord;
+uniform float time;
 
 vec3 permute(vec3 x) { return mod(((x*34.0)+1.0)*x, 289.0); }
 
@@ -32,7 +33,7 @@ float snoise(vec2 v){
 void main()
 {
     float noise = snoise(texCoord * 50);
-    if(noise < 0.3)
+    if(noise < abs(sin(time * 0.5)))
         discard;
 
 	gl_FragColor = vec4(1.0, noise, noise, 1.0);
