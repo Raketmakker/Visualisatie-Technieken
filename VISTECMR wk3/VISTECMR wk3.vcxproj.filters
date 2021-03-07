@@ -97,5 +97,11 @@
     <None Include="assets\shaders\post\postGrey.vs">
       <Filter>assets\shaders\post</Filter>
     </None>
+    <None Include="assets\shaders\post\sobelfilter.fs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\sobelfilter.vs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
   </ItemGroup>
 </Project>

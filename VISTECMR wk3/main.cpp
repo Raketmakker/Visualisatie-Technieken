@@ -61,6 +61,7 @@ void init()
 	shaders.push_back(new Shader("assets/shaders/texture"));
 	shaders.push_back(new Shader("assets/shaders/vertexanim"));
 
+	postProcessShaders.push_back(new Shader("assets/shaders/post/sobelfilter"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/postGrey"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/postprocess"));
 
@@ -139,6 +140,8 @@ void display()
 
 	postProcessShaders[currentPostShader]->use();
 	postProcessShaders[currentPostShader]->setUniform("s_texture", 0);
+	postProcessShaders[currentPostShader]->setUniform("width", glutGet(GLUT_WINDOW_X));
+	postProcessShaders[currentPostShader]->setUniform("height", glutGet(GLUT_WINDOW_Y));
 
 	fbo->use();
 	glEnableVertexAttribArray(0);

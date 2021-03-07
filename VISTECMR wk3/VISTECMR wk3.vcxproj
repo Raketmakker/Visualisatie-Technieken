@@ -100,6 +100,8 @@
     <None Include="assets\shaders\post\postGrey.vs" />
     <None Include="assets\shaders\post\postprocess.fs" />
     <None Include="assets\shaders\post\postprocess.vs" />
+    <None Include="assets\shaders\post\sobelfilter.fs" />
+    <None Include="assets\shaders\post\sobelfilter.vs" />
     <None Include="assets\shaders\simple.fs" />
     <None Include="assets\shaders\simple.vs" />
     <None Include="assets\shaders\texture.fs" />
