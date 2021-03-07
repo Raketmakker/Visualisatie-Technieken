@@ -106,6 +106,8 @@
     <None Include="assets\shaders\post\scanline.vs" />
     <None Include="assets\shaders\post\sobelfilter.fs" />
     <None Include="assets\shaders\post\sobelfilter.vs" />
+    <None Include="assets\shaders\post\water.fs" />
+    <None Include="assets\shaders\post\water.vs" />
     <None Include="assets\shaders\simple.fs" />
     <None Include="assets\shaders\simple.vs" />
     <None Include="assets\shaders\texture.fs" />

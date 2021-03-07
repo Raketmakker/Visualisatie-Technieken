@@ -115,5 +115,11 @@
     <None Include="assets\shaders\post\scanline.vs">
       <Filter>assets\shaders\post</Filter>
     </None>
+    <None Include="assets\shaders\post\water.fs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\water.vs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
   </ItemGroup>
 </Project>
