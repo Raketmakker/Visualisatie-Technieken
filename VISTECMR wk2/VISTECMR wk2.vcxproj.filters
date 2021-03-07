@@ -100,5 +100,11 @@
     <None Include="assets\shaders\noiseAlphaCutoff.vs">
       <Filter>assets\shaders</Filter>
     </None>
+    <None Include="assets\shaders\greyScale.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\greyScale.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
