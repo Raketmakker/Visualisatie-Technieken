@@ -121,5 +121,11 @@
     <None Include="assets\shaders\post\water.vs">
       <Filter>assets\shaders\post</Filter>
     </None>
+    <None Include="assets\shaders\post\filmGrain.fs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\filmGrain.vs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
   </ItemGroup>
 </Project>

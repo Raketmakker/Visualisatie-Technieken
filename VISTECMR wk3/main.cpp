@@ -61,6 +61,7 @@ void init()
 	shaders.push_back(new Shader("assets/shaders/texture"));
 	shaders.push_back(new Shader("assets/shaders/vertexanim"));
 
+	postProcessShaders.push_back(new Shader("assets/shaders/post/filmGrain"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/water"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/scanline"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/median"));

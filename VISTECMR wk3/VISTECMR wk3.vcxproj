@@ -96,6 +96,8 @@
   <ItemGroup>
     <None Include="assets\shaders\multitex.fs" />
     <None Include="assets\shaders\multitex.vs" />
+    <None Include="assets\shaders\post\filmGrain.fs" />
+    <None Include="assets\shaders\post\filmGrain.vs" />
     <None Include="assets\shaders\post\median.fs" />
     <None Include="assets\shaders\post\median.vs" />
     <None Include="assets\shaders\post\postGrey.fs" />
