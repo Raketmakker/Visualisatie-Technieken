@@ -61,6 +61,7 @@ void init()
 	shaders.push_back(new Shader("assets/shaders/texture"));
 	shaders.push_back(new Shader("assets/shaders/vertexanim"));
 
+	postProcessShaders.push_back(new Shader("assets/shaders/post/pixelate"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/filmGrain"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/water"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/scanline"));
@@ -145,8 +146,8 @@ void display()
 	postProcessShaders[currentPostShader]->use();
 	glUniform1f(postProcessShaders[currentPostShader]->getUniform("time"), glutGet(GLUT_ELAPSED_TIME) / 1000.0f);
 	postProcessShaders[currentPostShader]->setUniform("s_texture", 0);
-	postProcessShaders[currentPostShader]->setUniform("width", glutGet(GLUT_WINDOW_X));
-	postProcessShaders[currentPostShader]->setUniform("height", glutGet(GLUT_WINDOW_Y));
+	postProcessShaders[currentPostShader]->setUniform("width", screenSize.x);
+	postProcessShaders[currentPostShader]->setUniform("height", screenSize.y);
 
 	fbo->use();
 	glEnableVertexAttribArray(0);

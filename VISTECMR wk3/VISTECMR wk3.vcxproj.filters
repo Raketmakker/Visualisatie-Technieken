@@ -127,5 +127,11 @@
     <None Include="assets\shaders\post\filmGrain.vs">
       <Filter>assets\shaders\post</Filter>
     </None>
+    <None Include="assets\shaders\post\pixelate.fs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\pixelate.vs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
   </ItemGroup>
 </Project>

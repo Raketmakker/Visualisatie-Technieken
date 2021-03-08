@@ -100,6 +100,8 @@
     <None Include="assets\shaders\post\filmGrain.vs" />
     <None Include="assets\shaders\post\median.fs" />
     <None Include="assets\shaders\post\median.vs" />
+    <None Include="assets\shaders\post\pixelate.fs" />
+    <None Include="assets\shaders\post\pixelate.vs" />
     <None Include="assets\shaders\post\postGrey.fs" />
     <None Include="assets\shaders\post\postGrey.vs" />
     <None Include="assets\shaders\post\postprocess.fs" />
