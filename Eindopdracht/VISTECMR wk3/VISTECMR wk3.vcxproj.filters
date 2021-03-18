@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="assets">
+      <UniqueIdentifier>{4b3dec8d-ef8b-4dba-a248-d33befcc5fd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\shaders">
+      <UniqueIdentifier>{0d7f5439-3c67-48a1-9449-3d6e2ccb5174}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\shaders\post">
+      <UniqueIdentifier>{6be7ba58-793a-4cb8-8dca-b1578ec9b2e9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Fbo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ObjModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Fbo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\shaders\simple.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\texture.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\texture.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\textureanim.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\textureanim.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\vertexanim.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\vertexanim.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\multitex.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\multitex.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\simple.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\post\postprocess.fs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\postprocess.vs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\postGrey.fs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\postGrey.vs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\sobelfilter.fs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\sobelfilter.vs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\median.fs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\median.vs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\scanline.fs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\scanline.vs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\water.fs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\water.vs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\filmGrain.fs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\filmGrain.vs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\pixelate.fs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\pixelate.vs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\brick.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\brick.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\greyScale.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\greyScale.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\noiseAlphaCutoff.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\noiseAlphaCutoff.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\noiseColor.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\noiseColor.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\toonshading.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\toonshading.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>
