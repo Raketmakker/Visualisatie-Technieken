@@ -3,8 +3,8 @@ uniform sampler2D s_texture;
 uniform int height;
 in vec2 texCoord;
 
-const float density = 10;
-const float opacityScanline = .3;
+const float density = 5;
+const float opacityScanline = .5;
 
 void main(void) 
 {

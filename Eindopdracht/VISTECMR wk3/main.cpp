@@ -66,14 +66,14 @@ void init()
 	shaders.push_back(new Shader("assets/shaders/toonshading"));
 	shaders.push_back(new Shader("assets/shaders/vertexanim"));
 
-	postProcessShaders.push_back(new Shader("assets/shaders/post/pixelate"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/filmGrain"));
-	postProcessShaders.push_back(new Shader("assets/shaders/post/water"));
-	postProcessShaders.push_back(new Shader("assets/shaders/post/scanline"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/median"));
-	postProcessShaders.push_back(new Shader("assets/shaders/post/sobelfilter"));
+	postProcessShaders.push_back(new Shader("assets/shaders/post/pixelate"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/postGrey"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/postprocess"));
+	postProcessShaders.push_back(new Shader("assets/shaders/post/scanline"));
+	postProcessShaders.push_back(new Shader("assets/shaders/post/sobelfilter"));
+	postProcessShaders.push_back(new Shader("assets/shaders/post/water"));
 
 	models.push_back(new ObjModel("assets/models/ship/shipA_OBJ.obj"));
 	distances.push_back(50);
