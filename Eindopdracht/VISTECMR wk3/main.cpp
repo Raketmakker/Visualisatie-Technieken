@@ -55,6 +55,8 @@ void init()
 
 	currentShader = 0;
 	currentPostShader = 0;
+	shaders.push_back(new Shader("assets/shaders/advanced/reflection"));
+
 	shaders.push_back(new Shader("assets/shaders/brick"));
 	shaders.push_back(new Shader("assets/shaders/greyScale"));
 	shaders.push_back(new Shader("assets/shaders/multitex"));

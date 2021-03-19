@@ -22,6 +22,9 @@
     <Filter Include="assets\shaders\post">
       <UniqueIdentifier>{6be7ba58-793a-4cb8-8dca-b1578ec9b2e9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="assets\shaders\advanced">
+      <UniqueIdentifier>{b3fc1f87-143b-4ca3-aeec-c0682a8676cd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -162,6 +165,12 @@
     </None>
     <None Include="assets\shaders\toonshading.vs">
       <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\advanced\reflection.fs">
+      <Filter>assets\shaders\advanced</Filter>
+    </None>
+    <None Include="assets\shaders\advanced\reflection.vs">
+      <Filter>assets\shaders\advanced</Filter>
     </None>
   </ItemGroup>
 </Project>
