@@ -92,7 +92,68 @@ void Shader::reloadDefaultShaders() {
 }
 
 void Shader::reloadGeometryShaders() {
+	if (programId != -1)
+		glDeleteProgram(programId);
 
+	uniforms.clear();
+
+	std::ifstream vertexShaderFile(name + ".vs");
+	std::string vertexShaderData((std::istreambuf_iterator<char>(vertexShaderFile)), std::istreambuf_iterator<char>());
+	const char* cvertexShaderData = vertexShaderData.c_str();
+
+	std::ifstream fragShaderFile(name + ".fs");
+	std::string fragShaderData((std::istreambuf_iterator<char>(fragShaderFile)), std::istreambuf_iterator<char>());
+	const char* cfragShaderData = fragShaderData.c_str();
+
+	std::ifstream geomShaderFile(name + ".gs");
+	std::string geomShaderData((std::istreambuf_iterator<char>(geomShaderFile)), std::istreambuf_iterator<char>());
+	const char* cgeomShaderData = geomShaderData.c_str();
+
+
+	programId = glCreateProgram();							// maak een shaderprogramma aan
+
+	GLuint vertexId = glCreateShader(GL_VERTEX_SHADER);		// maak vertex shader aan
+	glShaderSource(vertexId, 1, &cvertexShaderData, NULL);		// laat opengl de shader uit de variabele 'vertexShader' halen
+	glCompileShader(vertexId);								// compileer de shader
+	if (checkShaderErrors(vertexId))
+	{
+		glDeleteProgram(programId);
+		programId = -1;
+		return;
+	}
+	glAttachShader(programId, vertexId);					// hang de shader aan het shaderprogramma
+
+	GLuint fragmentId = glCreateShader(GL_FRAGMENT_SHADER);	// maak fragment shader aan
+	glShaderSource(fragmentId, 1, &cfragShaderData, NULL);	// laat opengl de shader uit de variabele 'fragmentShader' halen
+	glCompileShader(fragmentId);							// compileer de shader
+	if (checkShaderErrors(fragmentId))
+	{
+		glDeleteProgram(programId);
+		programId = -1;
+		return;
+	}
+	glAttachShader(programId, fragmentId);					// hang de shader aan het shaderprogramma
+
+	GLuint geomId = glCreateShader(GL_GEOMETRY_SHADER);		// maak vertex shader aan
+	glShaderSource(geomId, 1, &cgeomShaderData, NULL);		// laat opengl de shader uit de variabele 'vertexShader' halen
+	glCompileShader(geomId);								// compileer de shader
+	// controleer of er fouten zijn opgetreden bij het compileren
+	if (checkShaderErrors(geomId)) {
+		glDeleteProgram(programId);
+		programId = -1;
+		return;
+	}
+	glAttachShader(programId, geomId);					// hang de shader aan het shaderprogramma
+
+	glBindAttribLocation(programId, 0, "a_position");		// zet de positie op vertex attribuut 0
+	glBindAttribLocation(programId, 1, "a_color");			// zet de kleur op vertex attribuut 1
+	glBindAttribLocation(programId, 2, "a_texcoord");		// zet de texcoord op vertex attribuut 2
+	glBindAttribLocation(programId, 3, "a_normal");			// zet de normaal op vertex attribuut 3
+	glLinkProgram(programId);								// link het programma, zorg dat alle attributes en varying gelinked zijn
+	glUseProgram(programId);								// Zet dit als actieve programma
+
+	glEnableVertexAttribArray(0);							// we gebruiken vertex attribute 0
+	glEnableVertexAttribArray(1);							// we gebruiken vertex attribute 1
 }
 
 void Shader::use()

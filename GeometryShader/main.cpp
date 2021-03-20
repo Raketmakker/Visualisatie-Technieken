@@ -89,16 +89,17 @@ void init()
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
 	//glClearColor(1, 0.7f, 0.3f, 1.0f);
+	std::string name = "defaultGeometry";
 
-	std::ifstream geomShaderFile("tesselation.gs");
+	std::ifstream geomShaderFile(name+".gs");
 	std::string geomShaderData((std::istreambuf_iterator<char>(geomShaderFile)), std::istreambuf_iterator<char>());
 	const char* cgeomShaderData = geomShaderData.c_str();
 
-	std::ifstream vertexShaderFile("tesselation.vs");
+	std::ifstream vertexShaderFile(name+".vs");
 	std::string vertexShaderData((std::istreambuf_iterator<char>(vertexShaderFile)), std::istreambuf_iterator<char>());
 	const char* cvertexShaderData = vertexShaderData.c_str();
 
-	std::ifstream fragShaderFile("tesselation.fs");
+	std::ifstream fragShaderFile(name+".fs");
 	std::string fragShaderData((std::istreambuf_iterator<char>(fragShaderFile)), std::istreambuf_iterator<char>());
 	const char* cfragShaderData = fragShaderData.c_str();
 

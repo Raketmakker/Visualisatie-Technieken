@@ -84,6 +84,9 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="defaultGeometry.fs" />
+    <None Include="defaultGeometry.gs" />
+    <None Include="defaultGeometry.vs" />
     <None Include="simple.fs" />
     <None Include="simple.gs" />
     <None Include="simple.vs" />

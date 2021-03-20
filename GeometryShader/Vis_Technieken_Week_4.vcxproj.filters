@@ -26,5 +26,8 @@
     <None Include="tesselation.fs" />
     <None Include="tesselation.gs" />
     <None Include="tesselation.vs" />
+    <None Include="defaultGeometry.fs" />
+    <None Include="defaultGeometry.gs" />
+    <None Include="defaultGeometry.vs" />
   </ItemGroup>
 </Project>

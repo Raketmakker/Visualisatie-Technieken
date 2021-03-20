@@ -52,10 +52,10 @@ void init()
 	room = new ObjModel("assets/models/room/room.obj");
 	roomShader = new Shader("assets/shaders/texture");
 
-
 	currentShader = 0;
 	currentPostShader = 0;
-	//shaders.push_back(new Shader("assets/shaders/advanced/tesselation"));
+	shaders.push_back(new Shader("assets/shaders/advanced/defaultGeometry", true));
+	shaders.push_back(new Shader("assets/shaders/advanced/tesselation", true));
 
 	shaders.push_back(new Shader("assets/shaders/brick"));
 	shaders.push_back(new Shader("assets/shaders/greyScale"));
@@ -68,11 +68,11 @@ void init()
 	shaders.push_back(new Shader("assets/shaders/toonshading"));
 	shaders.push_back(new Shader("assets/shaders/vertexanim"));
 
+	postProcessShaders.push_back(new Shader("assets/shaders/post/postprocess"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/filmGrain"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/median"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/pixelate"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/postGrey"));
-	postProcessShaders.push_back(new Shader("assets/shaders/post/postprocess"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/scanline"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/sobelfilter"));
 	postProcessShaders.push_back(new Shader("assets/shaders/post/water"));
@@ -87,7 +87,6 @@ void init()
 	models.push_back(new ObjModel("assets/models/normalstuff/normaltest2.obj"));
 	distances.push_back(2);
 
-
 	if (glDebugMessageCallback)
 	{
 		glDebugMessageCallback(&onDebug, NULL);
@@ -97,7 +96,6 @@ void init()
 
 	rotation = 0;
 	lastTime = glutGet(GLUT_ELAPSED_TIME);
-
 	fbo = new Fbo(4096, 4096);
 
 }

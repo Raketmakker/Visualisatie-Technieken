@@ -94,6 +94,9 @@
     <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="assets\shaders\advanced\defaultGeometry.fs" />
+    <None Include="assets\shaders\advanced\defaultGeometry.gs" />
+    <None Include="assets\shaders\advanced\defaultGeometry.vs" />
     <None Include="assets\shaders\advanced\tesselation.fs" />
     <None Include="assets\shaders\advanced\tesselation.gs" />
     <None Include="assets\shaders\advanced\tesselation.vs" />

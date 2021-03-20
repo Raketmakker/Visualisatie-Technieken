@@ -175,5 +175,14 @@
     <None Include="assets\shaders\advanced\tesselation.gs">
       <Filter>assets\shaders\advanced</Filter>
     </None>
+    <None Include="assets\shaders\advanced\defaultGeometry.fs">
+      <Filter>assets\shaders\advanced</Filter>
+    </None>
+    <None Include="assets\shaders\advanced\defaultGeometry.gs">
+      <Filter>assets\shaders\advanced</Filter>
+    </None>
+    <None Include="assets\shaders\advanced\defaultGeometry.vs">
+      <Filter>assets\shaders\advanced</Filter>
+    </None>
   </ItemGroup>
 </Project>
