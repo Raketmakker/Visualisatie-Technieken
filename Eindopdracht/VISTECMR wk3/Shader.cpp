@@ -25,15 +25,25 @@ bool checkShaderErrors(GLuint shaderId)
 
 
 
-Shader::Shader(const std::string & filename)
+Shader::Shader(const std::string& filename, bool hasGeometry)
 {
 	this->name = filename;
+	this->hasGeometry = hasGeometry;
 	reloadShaders();
 }
 
 
 void Shader::reloadShaders()
 {
+	if (this->hasGeometry) {
+		reloadGeometryShaders();
+	}
+	else {
+		reloadDefaultShaders();
+	}
+}
+
+void Shader::reloadDefaultShaders() {
 	if (programId != -1)
 		glDeleteProgram(programId);
 
@@ -79,6 +89,10 @@ void Shader::reloadShaders()
 	glBindAttribLocation(programId, 3, "a_normal");			// zet de normaal op vertex attribuut 3
 	glLinkProgram(programId);								// link het programma, zorg dat alle attributes en varying gelinked zijn
 	glUseProgram(programId);								// Zet dit als actieve programma
+}
+
+void Shader::reloadGeometryShaders() {
+
 }
 
 void Shader::use()

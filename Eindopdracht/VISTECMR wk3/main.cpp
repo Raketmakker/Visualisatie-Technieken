@@ -55,7 +55,7 @@ void init()
 
 	currentShader = 0;
 	currentPostShader = 0;
-	shaders.push_back(new Shader("assets/shaders/advanced/reflection"));
+	//shaders.push_back(new Shader("assets/shaders/advanced/tesselation"));
 
 	shaders.push_back(new Shader("assets/shaders/brick"));
 	shaders.push_back(new Shader("assets/shaders/greyScale"));
@@ -122,11 +122,8 @@ void display()
 	roomShader->setUniform("viewMatrix", view);
 	roomShader->setUniform("projectionMatrix", projection);
 	roomShader->setUniform("s_texture", 0);
-
 	room->draw();
-
-
-
+	
 	Shader* shader = shaders[currentShader];
 	shader->use();
 	shader->setUniform("modelMatrix", model);
@@ -143,12 +140,13 @@ void display()
 	glViewport(0,0,screenSize.x, screenSize.y);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-
 	std::vector<glm::vec2> verts;
 	verts.push_back(glm::vec2(-1, -1));
 	verts.push_back(glm::vec2(1, -1));
 	verts.push_back(glm::vec2(1, 1));
 	verts.push_back(glm::vec2(-1, 1));
+	verts.push_back(glm::vec2(-1, -1));
+	verts.push_back(glm::vec2(1, 1));
 
 	postProcessShaders[currentPostShader]->use();
 	glUniform1f(postProcessShaders[currentPostShader]->getUniform("time"), glutGet(GLUT_ELAPSED_TIME) / 1000.0f);
@@ -159,14 +157,7 @@ void display()
 	fbo->use();
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 2, GL_FLOAT, false, 2 * 4, &verts[0]);
-	glDrawArrays(GL_QUADS, 0, verts.size());
-
-
-
-
-
-
-
+	glDrawArrays(GL_TRIANGLES, 0, verts.size());
 	glutSwapBuffers();
 }
 

@@ -94,8 +94,9 @@
     <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\shaders\advanced\reflection.fs" />
-    <None Include="assets\shaders\advanced\reflection.vs" />
+    <None Include="assets\shaders\advanced\tesselation.fs" />
+    <None Include="assets\shaders\advanced\tesselation.gs" />
+    <None Include="assets\shaders\advanced\tesselation.vs" />
     <None Include="assets\shaders\brick.fs" />
     <None Include="assets\shaders\brick.vs" />
     <None Include="assets\shaders\greyScale.fs" />

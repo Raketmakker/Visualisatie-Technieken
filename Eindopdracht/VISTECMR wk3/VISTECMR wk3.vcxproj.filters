@@ -166,10 +166,13 @@
     <None Include="assets\shaders\toonshading.vs">
       <Filter>assets\shaders</Filter>
     </None>
-    <None Include="assets\shaders\advanced\reflection.fs">
+    <None Include="assets\shaders\advanced\tesselation.fs">
       <Filter>assets\shaders\advanced</Filter>
     </None>
-    <None Include="assets\shaders\advanced\reflection.vs">
+    <None Include="assets\shaders\advanced\tesselation.vs">
+      <Filter>assets\shaders\advanced</Filter>
+    </None>
+    <None Include="assets\shaders\advanced\tesselation.gs">
       <Filter>assets\shaders\advanced</Filter>
     </None>
   </ItemGroup>
