@@ -89,7 +89,8 @@ void init()
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
 	//glClearColor(1, 0.7f, 0.3f, 1.0f);
-	std::string name = "defaultGeometry";
+	//std::string name = "defaultGeometry";
+	std::string name = "tesselation";
 
 	std::ifstream geomShaderFile(name+".gs");
 	std::string geomShaderData((std::istreambuf_iterator<char>(geomShaderFile)), std::istreambuf_iterator<char>());
