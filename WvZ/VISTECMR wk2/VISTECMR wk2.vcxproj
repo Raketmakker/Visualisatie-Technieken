@@ -92,16 +92,28 @@
     <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="assets\shaders\explode.fs" />
+    <None Include="assets\shaders\explode.vs" />
     <None Include="assets\shaders\multitex.fs" />
     <None Include="assets\shaders\multitex.vs" />
+    <None Include="assets\shaders\noiseColor.fs" />
+    <None Include="assets\shaders\noiseColor.vs" />
+    <None Include="assets\shaders\noiseFade.fs" />
+    <None Include="assets\shaders\noiseFade.vs" />
+    <None Include="assets\shaders\noiseGrey.fs" />
+    <None Include="assets\shaders\noiseGrey.vs" />
     <None Include="assets\shaders\simple.fs" />
     <None Include="assets\shaders\simple.vs" />
     <None Include="assets\shaders\texture.fs" />
     <None Include="assets\shaders\texture.vs" />
     <None Include="assets\shaders\textureanim.fs" />
     <None Include="assets\shaders\textureanim.vs" />
+    <None Include="assets\shaders\toon.fs" />
+    <None Include="assets\shaders\toon.vs" />
     <None Include="assets\shaders\vertexanim.fs" />
     <None Include="assets\shaders\vertexanim.vs" />
+    <None Include="greyScale.fs" />
+    <None Include="greyScale.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

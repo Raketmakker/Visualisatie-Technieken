@@ -8,8 +8,10 @@
 
 class Shader
 {
+
 	std::map<std::string, GLuint> uniforms;
 	GLuint programId = -1;
+
 public:
 	std::string name;
 

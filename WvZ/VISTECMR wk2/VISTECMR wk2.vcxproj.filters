@@ -76,5 +76,41 @@
     <None Include="assets\shaders\simple.fs">
       <Filter>assets\shaders</Filter>
     </None>
+    <None Include="greyScale.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="greyScale.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\noiseColor.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\noiseColor.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\noiseGrey.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\noiseGrey.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\toon.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\toon.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\noiseFade.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\noiseFade.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\explode.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\explode.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

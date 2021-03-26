@@ -13,23 +13,23 @@
 
 #pragma comment(lib, "glew32.lib")
 
-
 std::vector<Shader*> shaders;
 std::vector<ObjModel*> models;
 std::vector<float> distances;
-int activeModel = 0;
-
-int currentShader;
 
 glm::ivec2 screenSize;
+
 float rotation;
+
+int activeModel = 0;
+int currentShader;
 int lastTime;
 
 
 #ifdef WIN32
-void GLAPIENTRY onDebug(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)
+	void GLAPIENTRY onDebug(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)
 #else
-void onDebug(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, GLvoid* userParam)
+	void onDebug(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, GLvoid* userParam)
 #endif
 {
 	std::cout << message << std::endl;
@@ -37,28 +37,35 @@ void onDebug(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei len
 
 void init()
 {
+
 	glewInit();
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
 	glClearColor(1, 0.7f, 0.3f, 1.0f);
 
 	currentShader = 0;
+	// original
 	shaders.push_back(new Shader("assets/shaders/simple"));
 	shaders.push_back(new Shader("assets/shaders/multitex"));
 	shaders.push_back(new Shader("assets/shaders/textureanim"));
 	shaders.push_back(new Shader("assets/shaders/texture"));
 	shaders.push_back(new Shader("assets/shaders/vertexanim"));
+	// self added
+	shaders.push_back(new Shader("assets/shaders/greyScale"));
+	shaders.push_back(new Shader("assets/shaders/noiseColor"));
+	shaders.push_back(new Shader("assets/shaders/noiseFade"));
+	shaders.push_back(new Shader("assets/shaders/noiseGrey"));
+	shaders.push_back(new Shader("assets/shaders/toon"));
+	shaders.push_back(new Shader("assets/shaders/explode"));
 
 	models.push_back(new ObjModel("assets/models/ship/shipA_OBJ.obj"));
 	distances.push_back(50);
 	models.push_back(new ObjModel("assets/models/car/honda_jazz.obj"));
 	distances.push_back(150);
-	//	model = new ObjModel("assets/models/bloemetje/PrimroseP.obj");
 	models.push_back(new ObjModel("assets/models/normalstuff/normaltest.obj"));
 	distances.push_back(2);
 	models.push_back(new ObjModel("assets/models/normalstuff/normaltest2.obj"));
 	distances.push_back(2);
-
 
 	glEnableVertexAttribArray(0);							// positie
 	glEnableVertexAttribArray(1);							// texcoord
@@ -67,6 +74,7 @@ void init()
 
 	if (glDebugMessageCallback)
 	{
+
 		glDebugMessageCallback(&onDebug, NULL);
 		glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB);
 		glEnable(GL_DEBUG_OUTPUT);
@@ -74,14 +82,12 @@ void init()
 
 	rotation = 0;
 	lastTime = glutGet(GLUT_ELAPSED_TIME);
-
-
 }
 
 void display()
 {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	Shader* shader = shaders[currentShader];
 
@@ -103,13 +109,12 @@ void display()
 
 	models[activeModel]->draw();
 
-													//en tekenen :)
-
 	glutSwapBuffers();
 }
 
 void reshape(int newWidth, int newHeight)
 {
+
 	screenSize.x = newWidth;
 	screenSize.y = newHeight;
 	glutPostRedisplay();
@@ -117,6 +122,7 @@ void reshape(int newWidth, int newHeight)
 
 void keyboard(unsigned char key, int x, int y)
 {
+
 	if (key == VK_ESCAPE)
 		glutLeaveMainLoop();
 	if (key == '[')
@@ -135,25 +141,21 @@ void keyboard(unsigned char key, int x, int y)
 
 void update()
 {
+
 	int time = glutGet(GLUT_ELAPSED_TIME);
-	float elapsed = time - lastTime;
-	
+	float elapsed = (float)(time - lastTime);
 	
 	rotation += elapsed / 1000.0f;
-
-
 
 	glutPostRedisplay();
 	lastTime = time;
 }
 
-
-
-
 int main(int argc, char* argv[])
 {
+
 	glutInit(&argc, argv);
-	glutInitWindowSize(1900, 1000);
+	glutInitWindowSize(800, 500);
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
 	glutCreateWindow("Visualisatietechnieken");
 
@@ -164,7 +166,5 @@ int main(int argc, char* argv[])
 
 	init();
 	
-	
 	glutMainLoop();
-
 }
