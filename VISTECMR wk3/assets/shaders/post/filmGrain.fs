@@ -36,7 +36,7 @@ float snoise(vec2 v){
 void main()
 {
     vec3 tex = texture2D(s_texture, texCoord).rgb;
-    float noise = snoise(texCoord * 1000);
+    float noise = snoise(texCoord * 1000 * time);
     noise = max(noise, 0.6);
     gl_FragColor = vec4(tex * noise, 1.0);
 }

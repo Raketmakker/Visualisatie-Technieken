@@ -94,16 +94,44 @@
     <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="assets\shaders\complex\shadow.fs" />
+    <None Include="assets\shaders\complex\shadow.vs" />
+    <None Include="assets\shaders\explode.fs" />
+    <None Include="assets\shaders\explode.vs" />
+    <None Include="assets\shaders\greyScale.fs" />
+    <None Include="assets\shaders\greyScale.vs" />
     <None Include="assets\shaders\multitex.fs" />
     <None Include="assets\shaders\multitex.vs" />
+    <None Include="assets\shaders\noiseColor.fs" />
+    <None Include="assets\shaders\noiseColor.vs" />
+    <None Include="assets\shaders\noiseFade.fs" />
+    <None Include="assets\shaders\noiseFade.vs" />
+    <None Include="assets\shaders\noiseGrey.fs" />
+    <None Include="assets\shaders\noiseGrey.vs" />
+    <None Include="assets\shaders\noiseSingleColor.fs" />
+    <None Include="assets\shaders\noiseSingleColor.vs" />
+    <None Include="assets\shaders\post\filmGrain.fs" />
+    <None Include="assets\shaders\post\filmGrain.vs" />
+    <None Include="assets\shaders\post\median.fs" />
+    <None Include="assets\shaders\post\median.vs" />
+    <None Include="assets\shaders\post\pixelate.fs" />
+    <None Include="assets\shaders\post\pixelate.vs" />
+    <None Include="assets\shaders\post\postGrey.fs" />
+    <None Include="assets\shaders\post\postGrey.vs" />
     <None Include="assets\shaders\post\postprocess.fs" />
     <None Include="assets\shaders\post\postprocess.vs" />
+    <None Include="assets\shaders\post\sobelfilter.fs" />
+    <None Include="assets\shaders\post\sobelfilter.vs" />
+    <None Include="assets\shaders\post\water.fs" />
+    <None Include="assets\shaders\post\water.vs" />
     <None Include="assets\shaders\simple.fs" />
     <None Include="assets\shaders\simple.vs" />
     <None Include="assets\shaders\texture.fs" />
     <None Include="assets\shaders\texture.vs" />
     <None Include="assets\shaders\textureanim.fs" />
     <None Include="assets\shaders\textureanim.vs" />
+    <None Include="assets\shaders\toon.fs" />
+    <None Include="assets\shaders\toon.vs" />
     <None Include="assets\shaders\vertexanim.fs" />
     <None Include="assets\shaders\vertexanim.vs" />
   </ItemGroup>

@@ -22,6 +22,9 @@
     <Filter Include="assets\shaders\post">
       <UniqueIdentifier>{6be7ba58-793a-4cb8-8dca-b1578ec9b2e9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="assets\shaders\complex">
+      <UniqueIdentifier>{99b0474e-b1a5-4cda-987b-a3229e3270e6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -90,6 +93,90 @@
     </None>
     <None Include="assets\shaders\post\postprocess.vs">
       <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\postGrey.fs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\postGrey.vs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\explode.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\explode.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\greyScale.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\greyScale.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\noiseColor.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\noiseColor.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\noiseFade.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\noiseFade.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\noiseGrey.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\noiseGrey.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\toon.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\toon.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\post\filmGrain.fs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\filmGrain.vs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\pixelate.fs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\pixelate.vs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\water.fs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\water.vs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\noiseSingleColor.fs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\noiseSingleColor.vs">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\post\sobelfilter.fs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\sobelfilter.vs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\median.fs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\post\median.vs">
+      <Filter>assets\shaders\post</Filter>
+    </None>
+    <None Include="assets\shaders\complex\shadow.fs">
+      <Filter>assets\shaders\complex</Filter>
+    </None>
+    <None Include="assets\shaders\complex\shadow.vs">
+      <Filter>assets\shaders\complex</Filter>
     </None>
   </ItemGroup>
 </Project>

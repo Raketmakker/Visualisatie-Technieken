@@ -15,10 +15,14 @@
 #pragma comment(lib, "glew32.lib")
 
 Shader* roomShader;
+Shader* complexShader;
+
 ObjModel* room;
 
 std::vector<Shader*> shaders;
 std::vector<Shader*> postProcessShaders;
+std::vector<Shader*> complexShaders;
+
 std::vector<ObjModel*> models;
 std::vector<float> distances;
 
@@ -26,11 +30,15 @@ Fbo* fbo;
 int activeModel = 0;
 
 int currentShader;
+int currentPostShader;
+int currentComplexShader;
+
+bool usesComplexShader;
 
 glm::ivec2 screenSize;
+
 float rotation;
 int lastTime;
-
 
 #ifdef WIN32
 void GLAPIENTRY onDebug(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)
@@ -43,6 +51,7 @@ void onDebug(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei len
 
 void init()
 {
+
 	glewInit();
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
@@ -51,29 +60,54 @@ void init()
 	room = new ObjModel("assets/models/room/room.obj");
 	roomShader = new Shader("assets/shaders/texture");
 
-
 	currentShader = 0;
+	currentPostShader = 0;
+	currentComplexShader = 0;
+
+	usesComplexShader = false;
+
+	// original shaders
 	shaders.push_back(new Shader("assets/shaders/simple"));
 	shaders.push_back(new Shader("assets/shaders/multitex"));
 	shaders.push_back(new Shader("assets/shaders/textureanim"));
 	shaders.push_back(new Shader("assets/shaders/texture"));
 	shaders.push_back(new Shader("assets/shaders/vertexanim"));
 
+	// self added shaders
+	shaders.push_back(new Shader("assets/shaders/greyScale"));
+	shaders.push_back(new Shader("assets/shaders/noiseFade"));
+	shaders.push_back(new Shader("assets/shaders/noiseSingleColor"));
+	shaders.push_back(new Shader("assets/shaders/noiseColor"));
+	shaders.push_back(new Shader("assets/shaders/noiseGrey"));
+	shaders.push_back(new Shader("assets/shaders/toon"));
+	shaders.push_back(new Shader("assets/shaders/explode"));
+
+	// original post shaders
 	postProcessShaders.push_back(new Shader("assets/shaders/post/postprocess"));
+
+	// self added post shaders
+	postProcessShaders.push_back(new Shader("assets/shaders/post/pixelate"));
+	postProcessShaders.push_back(new Shader("assets/shaders/post/filmGrain"));
+	postProcessShaders.push_back(new Shader("assets/shaders/post/water"));
+	postProcessShaders.push_back(new Shader("assets/shaders/post/median"));
+	postProcessShaders.push_back(new Shader("assets/shaders/post/sobelfilter"));
+	postProcessShaders.push_back(new Shader("assets/shaders/post/postGrey"));
+
+	// complex complex shaders
+	complexShaders.push_back(new Shader("assets/shaders/complex/shadow")); // kapot
 
 	models.push_back(new ObjModel("assets/models/ship/shipA_OBJ.obj"));
 	distances.push_back(50);
 	models.push_back(new ObjModel("assets/models/car/honda_jazz.obj"));
 	distances.push_back(150);
-	//	model = new ObjModel("assets/models/bloemetje/PrimroseP.obj");
 	models.push_back(new ObjModel("assets/models/normalstuff/normaltest.obj"));
 	distances.push_back(2);
 	models.push_back(new ObjModel("assets/models/normalstuff/normaltest2.obj"));
 	distances.push_back(2);
 
-
 	if (glDebugMessageCallback)
 	{
+
 		glDebugMessageCallback(&onDebug, NULL);
 		glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB);
 		glEnable(GL_DEBUG_OUTPUT);
@@ -83,7 +117,6 @@ void init()
 	lastTime = glutGet(GLUT_ELAPSED_TIME);
 
 	fbo = new Fbo(4096, 4096);
-
 }
 
 void display()
@@ -97,7 +130,7 @@ void display()
 	glm::mat4 projection = glm::perspective(glm::radians(70.0f), screenSize.x / (float)screenSize.y, 0.01f, 2000.0f);
 	glm::mat4 view = glm::lookAt(glm::vec3(0, 0, distances[activeModel]), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
 	glm::mat4 model = glm::translate(glm::mat4(1), glm::vec3(0, 0, -1));
-	model = glm::rotate(model, rotation, glm::vec3(0, 1, 0));
+	model = glm::rotate(model, rotation, glm::vec3(0, 0.25, 0));
 	
 	glm::mat3 normalMatrix = glm::transpose(glm::inverse(glm::mat3(view * model)));
 
@@ -108,8 +141,6 @@ void display()
 	roomShader->setUniform("s_texture", 0);
 
 	room->draw();
-
-
 
 	Shader* shader = shaders[currentShader];
 	shader->use();
@@ -127,32 +158,44 @@ void display()
 	glViewport(0,0,screenSize.x, screenSize.y);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-
 	std::vector<glm::vec2> verts;
 	verts.push_back(glm::vec2(-1, -1));
 	verts.push_back(glm::vec2(1, -1));
 	verts.push_back(glm::vec2(1, 1));
 	verts.push_back(glm::vec2(-1, 1));
 
-	postProcessShaders[0]->use();
-	postProcessShaders[0]->setUniform("s_texture", 0);
+	postProcessShaders[currentPostShader]->use();
+	glUniform1f(postProcessShaders[currentPostShader]->getUniform("time"), glutGet(GLUT_ELAPSED_TIME) / 1000.0f);
+	postProcessShaders[currentPostShader]->setUniform("s_texture", 0);
+	postProcessShaders[currentPostShader]->setUniform("width", screenSize.x);
+	postProcessShaders[currentPostShader]->setUniform("height", screenSize.y);
+
+	if (usesComplexShader)
+	{
+
+		// for shadow
+		float near_plane = 0.0f, far_plane = 15.0f;
+		glm::mat4 lightProjection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, near_plane, far_plane);
+		glm::mat4 lightSpaceMatrix = lightProjection * view;
+
+		complexShaders[currentComplexShader]->use();
+		complexShaders[currentComplexShader]->setUniform("projectionMatrix", projection);
+		complexShaders[currentComplexShader]->setUniform("viewMatrix", view);
+		complexShaders[currentComplexShader]->setUniform("modelMatrix", model);
+		complexShaders[currentComplexShader]->setUniform("lightSpaceMatrix", lightSpaceMatrix);
+	}
 
 	fbo->use();
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 2, GL_FLOAT, false, 2 * 4, &verts[0]);
 	glDrawArrays(GL_QUADS, 0, verts.size());
 
-
-
-
-
-
-
 	glutSwapBuffers();
 }
 
 void reshape(int newWidth, int newHeight)
 {
+
 	screenSize.x = newWidth;
 	screenSize.y = newHeight;
 	glutPostRedisplay();
@@ -160,41 +203,70 @@ void reshape(int newWidth, int newHeight)
 
 void keyboard(unsigned char key, int x, int y)
 {
+
 	if (key == VK_ESCAPE)
 		glutLeaveMainLoop();
+
 	if (key == '[')
 	{
+	
 		currentShader = (currentShader + shaders.size() - 1) % shaders.size();
 		std::cout << "Shader " << currentShader << std::endl;
 	}
+	
 	if (key == ']')
 	{
+	
 		currentShader = (currentShader + 1) % shaders.size();
 		std::cout << "Shader " << currentShader << std::endl;
 	}
+
+	if (key == '-')
+	{
+		currentPostShader = (currentPostShader + postProcessShaders.size() - 1) % postProcessShaders.size();
+		std::cout << "Post shader " << currentPostShader << std::endl;
+	}
+
+	if (key == '=')
+	{
+		currentPostShader = (currentPostShader + 1) % postProcessShaders.size();
+		std::cout << "Post shader " << currentPostShader << std::endl;
+	}
+
+	if (key == 'c')
+	{
+		currentPostShader = (currentPostShader + 1) % postProcessShaders.size();
+		std::cout << "Complex shader " << currentPostShader << std::endl;
+	}
+
+	if (key == 'x')
+	{
+		currentPostShader = (currentPostShader + postProcessShaders.size() - 1) % postProcessShaders.size();
+		std::cout << "Complex shader " << currentPostShader << std::endl;
+	}
+
+	if (key == 'z')
+		usesComplexShader = !usesComplexShader;
+
 	if (key == ',' || key == '.')
 		activeModel = (activeModel + 1) % models.size();
 }
 
 void update()
 {
+
 	int time = glutGet(GLUT_ELAPSED_TIME);
 	float elapsed = time - lastTime;
 	
-	
 	rotation += elapsed / 1000.0f;
-
-
 
 	glutPostRedisplay();
 	lastTime = time;
 }
 
-
-
-
 int main(int argc, char* argv[])
 {
+
 	glutInit(&argc, argv);
 	glutInitWindowSize(1900, 1000);
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
@@ -207,7 +279,5 @@ int main(int argc, char* argv[])
 
 	init();
 	
-	
 	glutMainLoop();
-
 }
