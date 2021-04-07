@@ -35,7 +35,7 @@ void main()
 {
     float noise = snoise(texCoord * 100);
     noise = clamp(noise, 0.0, 1.0);
-    if(noise < abs(sin(time * 0.5)))
+    if(noise + 0.001 < clamp(sin(time * 0.5) + 0.5, 0.0, 1.0))
         discard;
 
 	gl_FragColor = texture2D(s_texture, texCoord);
